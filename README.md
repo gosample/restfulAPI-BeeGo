@@ -13,11 +13,15 @@ Descomprimir en /usr/local
 tar -C /usr/local -xzf go1.7.linux-amd64.tar.gz
 
 escribir el en fichero /etc/profile escribir:
+
   export PATH=$PATH:/usr/local/go/bin
   
 y añadir en el fichero .profile:
+
   export GOPATH=$HOME/golang
+
   export GOROOT=$HOME/go
+
   export PATH=$PATH:$GOROOT/bin
 
 ## BeeGo:
