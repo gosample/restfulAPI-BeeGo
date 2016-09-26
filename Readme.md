@@ -26,6 +26,8 @@ y añadir en el fichero .profile:
 
   export PATH=$PATH:$GOROOT/bin
 
+Para mayor información consultar: https://golang.org/doc/install
+
 ## BeeGo:
 Escribir en consola
 
@@ -35,9 +37,14 @@ go get github.com/beego/bee
 
 mover el ejecutable bee al directorio go/bin
 
+Para mayor información consultar: http://beego.me/quickstart
+
 ## Mango (mgo):
 Escribir en consola:
 
 go get gopkg.in/mgo.v2
 
 go get gopkg.in/check.v1
+
+Para mayor información consultar: https://labix.org/mgo
+
