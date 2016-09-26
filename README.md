@@ -24,6 +24,7 @@ y añadir en el fichero .profile:
 Escribir en consola
 
 go get github.com/astaxie/beego
+
 go get github.com/beego/bee
 
 mover el ejecutable bee al directorio go/bin
@@ -32,4 +33,5 @@ mover el ejecutable bee al directorio go/bin
 Escribir en consola:
 
 go get gopkg.in/mgo.v2
+
 go get gopkg.in/check.v1
