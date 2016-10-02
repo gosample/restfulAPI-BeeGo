@@ -6,9 +6,6 @@ import (
 //	"time"
 //  "reflect"
 	"fmt"
-  "gopkg.in/mgo.v2"
-  "encoding/json"
-  "gopkg.in/mgo.v2/bson"
 )
 
 type Cansat struct{
@@ -27,28 +24,16 @@ type Cansat struct{
 var listCansats []Cansat
 
 func init() {
-  session, err := mgo.Dial("localhost:27017")
-  if err != nil {
-    panic(err)
-  }
-  defer session.Close()
-  session.SetMode(mgo.Monotonic, true)
-  c := session.DB("smartcity").C("cansats")
-  err = c.Find(bson.M{ }).All(&listCansats)
-  js, __ := json.Marshal(listCansats)
-  //fmt.Printf("%s\n",listCansats[0].Id_sensores[1])
-  //fmt.Println(reflect.TypeOf(listCansats))
-  if __ != nil {
-    panic(__)
-  }
-  fmt.Printf("\nlista de cansats:\n%s\n\n",js)
+  listCansats = cansatRequest()
 }
 
 func GetAllCansats() []Cansat {
+  listCansats = cansatRequest()
 	return listCansats
 }
 
 func GetCansat(Id_cansat string) (cansat Cansat, err error) {
+  listCansats = cansatRequest()
   cansat = listCansats[0]
   for i := 0; i < len(listCansats); i++ {
     if listCansats[i].Id_cansat==Id_cansat {

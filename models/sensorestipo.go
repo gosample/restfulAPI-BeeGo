@@ -6,38 +6,28 @@ import (
 //	"time"
 //  "reflect"
 	"fmt"
-  "gopkg.in/mgo.v2"
-  "encoding/json"
-  "gopkg.in/mgo.v2/bson"
 )
 
 // db.sensores.aggregate([{$unwind:"$tipo_sensor"},{$project:{_id:0,tipo_sensor:1,"prefijo":1}}])
 
-type optionSensor struct{
+type sensorTipo struct{
   Prefijo     string `json:"prefijo"`
   Tipo_sensor string `json:"tipo_sensor"`
 }
 
-var listOption []optionSensor
+var listTipo []sensorTipo
 
-func GetAllSensorTipo() []optionSensor{
-  session, err := mgo.Dial("localhost:27017")
-  if err != nil {
-    panic(err)
-  }
-  defer session.Close()
-  session.SetMode(mgo.Monotonic, true)
-  c := session.DB("smartcity").C("tiposensores")
-  err = c.Find(bson.M{}).All(&listOption)
-  js, __ := json.Marshal(listOption)
-  if __ != nil {
-    panic(__)
-  }
-  fmt.Printf("\nlista de sensores:\n%s\n\n",js)
-  return listOption
+func init(){
+  listTipo = sensorTipoRequest()
+}
+
+func GetAllSensorTipo() []sensorTipo{
+  listTipo = sensorTipoRequest()
+  return listTipo
 }
 
 func GetSensorTipo(Tipo_sensor string) (listCansatxSensor []string, err error) {
+  listTipo = sensorTipoRequest()
   var sens []string
   for i := 0; i < len(listSensores); i++ {
     if listSensores[i].Tipo_sensor==Tipo_sensor {
@@ -52,6 +42,7 @@ func GetSensorTipo(Tipo_sensor string) (listCansatxSensor []string, err error) {
 }
 
 func GetAllSensorTipo1() []string {
+  listTipo = sensorTipoRequest()
   var elementsTipo []string
   var elementsPrefijo []string
   var sens []string

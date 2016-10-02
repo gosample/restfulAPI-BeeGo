@@ -39,6 +39,34 @@ db.cansats.insert({
     "S50005"
   ]
 })
+db.cansats.insert({
+  "id_cansat":"C1004",
+  "modelo": "verl",
+  "f_install":"2016-05-09",
+  "h_install":"21:44:10",
+  "longuitud":-77.0503843,
+  "latitud":-12.0157352,
+  "lugar":"Zona 1",
+  "id_sensores":[
+    "S50001",
+    "S51001",
+    "S52001",
+  ]
+})
+db.cansats.insert({
+  "id_cansat":"C1005",
+  "modelo": "verl",
+  "f_install":"2016-05-09",
+  "h_install":"21:44:10",
+  "longuitud":-77.0500777,
+  "latitud":-12.0185203,
+  "lugar":"Zona 1",
+  "id_sensores":[
+    "S50001",
+    "S51001",
+    "S52001",
+  ]
+})
 /* sensores */
 db.sensores.insert({
   "id_sensor":"S50001",
@@ -96,19 +124,27 @@ db.sensores.insert({
   "prefijo":"CO2"
 })
 /* tipo sensores */
-db.tiposensores.insert({
+db.sensorestipo.insert({
   "tipo_sensor":"Dioxido",
   "prefijo":"CO2"
 })
-db.tiposensores.insert({
+db.sensorestipo.insert({
   "tipo_sensor":"Temperatura",
   "prefijo":"T"
 })
-db.tiposensores.insert({
+db.sensorestipo.insert({
   "tipo_sensor":"Presion",
   "prefijo":"P"
 })
-db.tiposensores.insert({
+db.sensorestipo.insert({
   "tipo_sensor":"Monoxido",
   "prefijo":"CO"
+})
+db.sensorestipo.insert({
+  "tipo_sensor":"Amoniaco",
+  "prefijo":"NH3"
+})
+db.sensorestipo.insert({
+  "tipo_sensor":"Humedad",
+  "prefijo":"H"
 })
