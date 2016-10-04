@@ -18,6 +18,6 @@ Para mayor información consultar: http://beego.me/quickstart
 
 Para mayor información consultar: https://labix.org/mgo
 
-### otra referencia (personal)
+### Otra referencia (personal)
 
 Revisar: https://github.com/Jenazad/developConfig/
