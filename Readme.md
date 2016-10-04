@@ -12,11 +12,21 @@ Para mayor información consultar: https://golang.org/doc/install
 
 ## BeeGo:
 
-Para mayor información consultar: http://beego.me/quickstart
+WebFramework para el lenguaje Go, para mayor información consultar: http://beego.me/quickstart
+
+Instalar:
+
+    go get github.com/astaxie/beego
+    go get github.com/beego/bee
 
 ## Mango (mgo):
 
-Para mayor información consultar: https://labix.org/mgo
+Driver de MongoDB para el lenguaje Go, para mayor información consultar: https://labix.org/mgo
+
+Instalar:
+
+    go get gopkg.in/mgo.v2
+    go get gopkg.in/check.v1
 
 ### Otra referencia (personal)
 
