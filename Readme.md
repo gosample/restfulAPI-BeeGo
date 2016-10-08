@@ -1,4 +1,4 @@
-# RestulAPI-BeeGo
+# RESTful Web Services using Bee-API with Go language
 
 Plataforma de desarrollo usando el lenguaje de programación Go, el driver para MongoDB de Go y el framework BeeGo.
 
