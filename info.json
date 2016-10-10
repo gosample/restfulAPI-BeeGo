@@ -189,3 +189,11 @@ db.temperatura.insert({
   "fecha":"2016-04-10",
   "hora":"16:16:15"
 })
+db.temperatura.insert({
+  "id_cansat":"C1002",
+  "id_sensor":"S50002",
+  "tipo_sensor":"Dioxido",
+  "value":22.5,
+  "fecha":"2016-04-10",
+  "hora":"16:16:15"
+})
