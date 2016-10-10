@@ -148,3 +148,39 @@ db.sensorestipo.insert({
   "tipo_sensor":"Humedad",
   "prefijo":"H"
 })
+/* datos temperautura */
+db.temperatura.insert({
+  "id_cansat":"C1001",
+  "id_sensor":"S50001",
+  "value":31.5,
+  "fecha":"2016-04-10",
+  "hora":"15:37:15"
+})
+db.temperatura.insert({
+  "id_cansat":"C1001",
+  "id_sensor":"S50001",
+  "value":34.5,
+  "fecha":"2016-04-10",
+  "hora":"15:38:15"
+})
+db.temperatura.insert({
+  "id_cansat":"C1001",
+  "id_sensor":"S50001",
+  "value":14.5,
+  "fecha":"2016-04-10",
+  "hora":"16:15:15"
+})
+db.temperatura.insert({
+  "id_cansat":"C1001",
+  "id_sensor":"S50001",
+  "value":18.5,
+  "fecha":"2016-04-10",
+  "hora":"16:16:15"
+})
+db.temperatura.insert({
+  "id_cansat":"C1001",
+  "id_sensor":"S50001",
+  "value":22.5,
+  "fecha":"2016-04-10",
+  "hora":"16:16:15"
+})

@@ -18,7 +18,7 @@ func init() {
 			),
 		),
 	)
-	sensCan := beego.NewNamespace("/mapa",
+	sensCan := beego.NewNamespace("/smartcity",
 		beego.NSNamespace("/cansats",
 			beego.NSInclude(
 				&controllers.CansatController{},
@@ -32,6 +32,11 @@ func init() {
 		beego.NSNamespace("/sensorestipo",
 			beego.NSInclude(
 				&controllers.SensorTipoController{},
+			),
+		),
+		beego.NSNamespace("/sensoresdato",
+			beego.NSInclude(
+				&controllers.SensorDatoController{},
 			),
 		),
 	)

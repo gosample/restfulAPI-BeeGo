@@ -79,3 +79,23 @@ func sensorTipoRequest() []sensorTipo{
   fmt.Printf("\nlista delos tipos de sensores:\n%s\n\n",js)
   return listTipo
 }
+
+func sensorDatoRequest() []sensorDato{
+  var listDato []sensorDato
+  session, err := mgo.Dial("localhost:27017")
+  if err != nil {
+    panic(err)
+  }
+  defer session.Close()
+  session.SetMode(mgo.Monotonic, true)
+  c := session.DB("smartcity").C("temperatura")
+  err = c.Find(bson.M{ }).All(&listDato)
+  js, __ := json.Marshal(listDato)
+  //fmt.Printf("%s\n",listCansats[0].Modelo)
+  //fmt.Println(reflect.TypeOf(listCansats))
+  if __ != nil {
+    panic(__)
+  }
+  fmt.Printf("\nlista de los datos de sensores:\n%s\n\n",js)
+  return listDato
+}
