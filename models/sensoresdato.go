@@ -32,7 +32,7 @@ func GetAllSensorDato() []sensorDato{
 func GetSensorDato(Id_sensor string) (listCansatxSensor [] float32, err error) {
   listDato = sensorDatoRequest()
   var sens []float32
-  for i := 0; i < len(listSensores); i++ {
+  for i := 0; i < len(listDato); i++ {
     if listDato[i].Id_sensor==Id_sensor {
       sens = append(sens, listDato[i].Value)
     }
