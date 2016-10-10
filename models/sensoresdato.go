@@ -11,11 +11,12 @@ import (
 // db.sensores.aggregate([{$unwind:"$tipo_sensor"},{$project:{_id:0,tipo_sensor:1,"prefijo":1}}])
 
 type sensorDato struct{
-  Id_cansat  string `json:"id_cansat"`
-  Id_sensor  string `json:"id_sensor"`
-  Value      float32 `json:"value"`
-  Fecha      string `json:"fecha"`
-  Hora       string `json:"hora"`
+  Id_cansat   string `json:"id_cansat"`
+  Id_sensor   string `json:"id_sensor"`
+  Value       float32 `json:"value"`
+  Tipo_sensor string `json:"tipo_sensor"`
+  Fecha       string `json:"fecha"`
+  Hora        string `json:"hora"`
 }
 
 var listDato []sensorDato
