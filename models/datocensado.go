@@ -10,7 +10,7 @@ import (
 
 // db.sensores.aggregate([{$unwind:"$tipo_sensor"},{$project:{_id:0,tipo_sensor:1,"prefijo":1}}])
 
-type sensorDato struct{
+type datoSensado struct{
   Id_cansat   string `json:"id_cansat"`
   Id_sensor   string `json:"id_sensor"`
   Value       float32 `json:"value"`
@@ -19,23 +19,23 @@ type sensorDato struct{
   Hora        string `json:"hora"`
 }
 
-var listDato []sensorDato
+var listDato []datoSensado
 
 func init(){
-  listDato = sensorDatoRequest()
+  listDato = datoSensadoRequest()
 }
 
-func GetAllSensorDato() []sensorDato{
-  listDato = sensorDatoRequest()
+func GetAllDatoSensado() []datoSensado{
+  listDato = datoSensadoRequest()
   return listDato
 }
 
-func GetSensorDato(Id_sensor string) (listCansatxSensor [] float32, err error) {
-  listDato = sensorDatoRequest()
-  var sens []float32
+func GetDatoSensado(Tipo_sensor string,Id_cansat string) (listCansatxSensor [] datoSensado, err error) {
+  listDato = datoSensadoRequest()
+  var sens []datoSensado
   for i := 0; i < len(listDato); i++ {
-    if listDato[i].Id_sensor==Id_sensor {
-      sens = append(sens, listDato[i].Value)
+    if listDato[i].Tipo_sensor==Tipo_sensor && listDato[i].Id_cansat==Id_cansat && Id_cansat != ""{
+      sens = append(sens, listDato[i])
     }
 	}
 	if sens==nil{

@@ -7,7 +7,7 @@ import (
 )
 
 // Operations about sensor
-type SensorDatoController struct {
+type DatoSensadoController struct {
 	beego.Controller
 }
 
@@ -16,10 +16,10 @@ type SensorDatoController struct {
 // @Success 200 {sensor} models.sensor
 // @Failure 403 :Id_sensor is empty
 // @router / [get]
-func (o *SensorDatoController) GetAll() {
+func (o *DatoSensadoController) GetAll() {
   o.Ctx.ResponseWriter.Header().Add("Access-Control-Allow-Origin", "*")
   o.Ctx.ResponseWriter.Header().Add("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
-	obs := models.GetAllSensorDato()
+	obs := models.GetAllDatoSensado()
 	o.Data["json"] = obs
 	o.ServeJSON()
 }
@@ -29,13 +29,14 @@ func (o *SensorDatoController) GetAll() {
 // @Param	Id_sensor		path 	string	true		"the id_sensor you want to get"
 // @Success 200 {sensor} models.Sensor
 // @Failure 403 :Id_sensor is empty
-// @router /:Id_sensor [get]
-func (o *SensorDatoController) Get() {
+// @router /:Tipo_sensor/:Id_cansat [get]
+func (o *DatoSensadoController) Get() {
   o.Ctx.ResponseWriter.Header().Add("Access-Control-Allow-Origin", "*")
   o.Ctx.ResponseWriter.Header().Add("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
-	Id_sensor := o.Ctx.Input.Param(":Id_sensor")
-	if Id_sensor != "" {
-		ob, err := models.GetSensorDato(Id_sensor)
+	Tipo_sensor := o.Ctx.Input.Param(":Tipo_sensor")
+	Id_cansat := o.Ctx.Input.Param(":Id_cansat")
+	if Tipo_sensor != "" && Id_cansat != ""{
+		ob, err := models.GetDatoSensado(Tipo_sensor,Id_cansat)
 		if err != nil {
 			o.Data["json"] = err.Error()
 		} else {

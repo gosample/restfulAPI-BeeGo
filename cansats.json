@@ -1,0 +1,78 @@
+db.cansats.insert({
+  "id_cansat":"C1001",
+  "modelo": "verl",
+  "f_install":"2016-05-09",
+  "h_install":"21:44:10",
+  "longuitud":-77.0499641,
+  "latitud":-12.0166427,
+  "lugar":"Zona 1",
+  "sensores":[
+    {"id_sensor":"S50001","tipo_sensor":"Temperatura"},
+    {"id_sensor":"S51001","tipo_sensor":"Presion"},
+    {"id_sensor":"S52001","tipo_sensor":"Monoxido"}
+    
+  ]
+})
+db.cansats.insert({
+  "id_cansat":"C1002",
+  "modelo": "verl",
+  "f_install":"2016-09-20",
+  "h_install":"13:44:10",
+  "longuitud":-77.050476,
+  "latitud":-12.0171175,
+  "lugar":"Zona 1",
+  "sensores":[
+    {"id_sensor":"S50002","tipo_sensor":"Temperatura"},
+    {"id_sensor":"S51002","tipo_sensor":"Presion"},
+    {"id_sensor":"S53001","tipo_sensor":"Dioxido"}
+  ]
+})
+db.cansats.insert({
+  "id_cansat":"C1003",
+  "modelo": "verl",
+  "f_install":"2016-09-20",
+  "h_install":"13:44:10",
+  "longuitud":-77.0495435,
+  "latitud":-12.0173944,
+  "lugar":"Zona 1",
+  "sensores":[
+    {"id_sensor":"S53002","tipo_sensor":"Dioxido"}
+  ]
+})
+db.cansats.insert({
+  "id_cansat":"C1004",
+  "modelo": "verl",
+  "f_install":"2016-05-09",
+  "h_install":"21:44:10",
+  "longuitud":-77.0503843,
+  "latitud":-12.0157352,
+  "lugar":"Zona 1",
+  "sensores":[
+    {"id_sensor":"S53003","tipo_sensor":"Dioxido"}
+  ]
+})
+/* tipo sensores */
+db.sensorestipo.insert({
+  "tipo_sensor":"Dioxido",
+  "prefijo":"CO2"
+})
+db.sensorestipo.insert({
+  "tipo_sensor":"Temperatura",
+  "prefijo":"T"
+})
+db.sensorestipo.insert({
+  "tipo_sensor":"Presion",
+  "prefijo":"P"
+})
+db.sensorestipo.insert({
+  "tipo_sensor":"Monoxido",
+  "prefijo":"CO"
+})
+db.sensorestipo.insert({
+  "tipo_sensor":"Amoniaco",
+  "prefijo":"NH3"
+})
+db.sensorestipo.insert({
+  "tipo_sensor":"Humedad",
+  "prefijo":"H"
+})

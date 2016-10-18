@@ -13,7 +13,6 @@ type Sensor struct {
   Id_cansat   string `json:"id_cansat"`
   Tipo_sensor string `json:"tipo_sensor"`
   Unidad      string `json:"unidad"`
-  Tipo_valor  string `json:"tipo_valor"`
   Modelo      string `json:"modelo"`
   F_install   string `json:"f_install"`
   H_install   string `json:"h_install"`
@@ -33,16 +32,19 @@ func GetAllSensores() []Sensor {
 	return listSensores
 }
 
-func GetSensorId(Id_sensor string) (sensor Sensor, err error) {
+func GetSensorId(Tipo_sensor string) (sensor []Sensor, err error) {
   listSensores = sensoresRequest()
-  sensor = listSensores[0]
+  var sens []Sensor
   for i := 0; i < len(listSensores); i++ {
-    if listSensores[i].Id_sensor==Id_sensor {
-      return listSensores[i], nil
+    if listSensores[i].Tipo_sensor==Tipo_sensor {
+      sens = append(sens, listSensores[i])
     }
 	}
-  fmt.Printf("\nNo se encontro Sensor !\n\n")
-	return sensor, errors.New("Sensor no existe")
+	if sens==nil{
+    fmt.Printf("\nNo se encontraron sensores de ese tipo !\n\n")
+	  return nil, errors.New("Sensor no existe")
+	}
+	return sens, nil
 }
 
 /*

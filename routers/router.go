@@ -34,9 +34,9 @@ func init() {
 				&controllers.SensorTipoController{},
 			),
 		),
-		beego.NSNamespace("/sensoresdato",
+		beego.NSNamespace("/datossensados",
 			beego.NSInclude(
-				&controllers.SensorDatoController{},
+				&controllers.DatoSensadoController{},
 			),
 		),
 	)

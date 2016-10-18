@@ -1,0 +1,48 @@
+db.datosensado.insert({
+  "id_cansat":"C1001",
+  "id_sensor":"S50001",
+  "tipo_sensor":"Temperatura",
+  "value":31.5,
+  "fecha":"2016-04-10",
+  "hora":"15:37:15"
+})
+db.datosensado.insert({
+  "id_cansat":"C1001",
+  "id_sensor":"S50001",
+  "tipo_sensor":"Temperatura",
+  "value":34.5,
+  "fecha":"2016-04-10",
+  "hora":"15:38:15"
+})
+db.datosensado.insert({
+  "id_cansat":"C1001",
+  "id_sensor":"S50001",
+  "tipo_sensor":"Temperatura",
+  "value":14.5,
+  "fecha":"2016-04-10",
+  "hora":"16:15:15"
+})
+db.datosensado.insert({
+  "id_cansat":"C1002",
+  "id_sensor":"S50002",
+  "tipo_sensor":"Temperatura",
+  "value":18.5,
+  "fecha":"2016-04-10",
+  "hora":"16:16:15"
+})
+db.datosensado.insert({
+  "id_cansat":"C1002",
+  "id_sensor":"S50002",
+  "tipo_sensor":"Temperatura",
+  "value":22.5,
+  "fecha":"2016-04-10",
+  "hora":"16:16:15"
+})
+db.datosensado.insert({
+  "id_cansat":"C1003",
+  "id_sensor":"S53002",
+  "tipo_sensor":"Dioxido",
+  "value":22.5,
+  "fecha":"2016-04-10",
+  "hora":"16:16:15"
+})

@@ -1,0 +1,80 @@
+db.sensores.insert({
+  "id_sensor":"S50001",
+  "id_cansat":"C1001",
+  "tipo_sensor":"Temperatura",
+  "unidad":"°C",
+  "modelo":"T1",
+  "f_install":"2016-05-09",
+  "h_install":"21:44:10",
+  "prefijo":"T"
+})
+db.sensores.insert({
+  "id_sensor":"S50002",
+  "id_cansat":"C1002",
+  "tipo_sensor":"Temperatura",
+  "unidad":"°C",
+  "modelo":"T1",
+  "f_install":"2016-05-09",
+  "h_install":"21:44:10",
+  "prefijo":"T"
+})
+db.sensores.insert({
+  "id_sensor":"S51001",
+  "id_cansat":"C1001",
+  "tipo_sensor":"Presion",
+  "unidad":"Pa",
+  "modelo":"PA1",
+  "f_install":"2016-05-09",
+  "h_install":"21:44:10",
+  "prefijo":"P"
+})
+db.sensores.insert({
+  "id_sensor":"S51002",
+  "id_cansat":"C1002",
+  "tipo_sensor":"Presion",
+  "unidad":"Pa",
+  "modelo":"PA1",
+  "f_install":"2016-05-09",
+  "h_install":"21:44:10",
+  "prefijo":"P"
+})
+db.sensores.insert({
+  "id_sensor":"S52001",
+  "id_cansat":"C1001",
+  "tipo_sensor":"Monoxido",
+  "unidad":"ppm",
+  "modelo":"CO1",
+  "f_install":"2016-05-09",
+  "h_install":"21:44:10",
+  "prefijo":"CO"
+})
+db.sensores.insert({
+  "id_sensor":"S53001",
+  "id_cansat":"C1002",
+  "tipo_sensor":"Dioxido",
+  "unidad":"ppm",
+  "modelo":"CO2",
+  "f_install":"2016-05-09",
+  "h_install":"21:44:10",
+  "prefijo":"CO2"
+})
+db.sensores.insert({
+  "id_sensor":"S53002",
+  "id_cansat":"C1003",
+  "tipo_sensor":"Dioxido",
+  "unidad":"ppm",
+  "modelo":"CO2",
+  "f_install":"2016-05-09",
+  "h_install":"21:44:10",
+  "prefijo":"CO2"
+})
+db.sensores.insert({
+  "id_sensor":"S53003",
+  "id_cansat":"C1004",
+  "tipo_sensor":"Dioxido",
+  "unidad":"ppm",
+  "modelo":"CO2",
+  "f_install":"2016-05-09",
+  "h_install":"21:44:10",
+  "prefijo":"CO2"
+})

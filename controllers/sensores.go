@@ -29,13 +29,13 @@ func (o *SensorController) GetAll() {
 // @Param	Id_sensor		path 	string	true		"the id_sensor you want to get"
 // @Success 200 {sensor} models.Sensor
 // @Failure 403 :Id_sensor is empty
-// @router /:Id_sensor [get]
+// @router /:Tipo_sensor [get]
 func (o *SensorController) Get() {
   o.Ctx.ResponseWriter.Header().Add("Access-Control-Allow-Origin", "*")
   o.Ctx.ResponseWriter.Header().Add("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
-	Id_sensor := o.Ctx.Input.Param(":Id_sensor")
-	if Id_sensor != "" {
-		ob, err := models.GetSensorId(Id_sensor)
+	Tipo_sensor := o.Ctx.Input.Param(":Tipo_sensor")
+	if Tipo_sensor != "" {
+		ob, err := models.GetSensorId(Tipo_sensor)
 		if err != nil {
 			o.Data["json"] = err.Error()
 		} else {

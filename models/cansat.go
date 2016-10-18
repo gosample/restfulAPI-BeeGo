@@ -16,7 +16,12 @@ type Cansat struct{
   Longuitud   float64 `json:"longuitud"`
   Latitud     float64`json:"latitud"`
   Lugar       string `json:"lugar"`
-  Id_sensores []string `json:"id_sensores"`
+  Sensores  []SensCan `json:"sensores"`
+}
+
+type SensCan struct{
+  Tipo_Sensor  string `json:"tipo_sensor"`
+  Id_Sensor    string `json:"id_sensor"`
 }
 // db.cansats.aggregate([{$unwind:"$id_sensores"},{$project:{_id:0,id_sensores:1}}])
 // db.cansats.aggregate([{$unwind:"$id_sensores"},{$match:{"id_cansat":"C1001"}},{$project:{_id:0,id_sensores:1}}])
