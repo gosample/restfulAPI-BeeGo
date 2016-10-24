@@ -30,7 +30,7 @@ func (o *SensorTipoController) GetAll() {
 // @Success 200 {sensor} models.Sensor
 // @Failure 403 :Tipo_sensor is empty
 // @router /:Tipo_sensor [get]
-func (o *SensorTipoController) Get() {
+/*func (o *SensorTipoController) Get() {
   o.Ctx.ResponseWriter.Header().Add("Access-Control-Allow-Origin", "*")
   o.Ctx.ResponseWriter.Header().Add("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
 	Tipo_sensor := o.Ctx.Input.Param(":Tipo_sensor")
@@ -45,7 +45,6 @@ func (o *SensorTipoController) Get() {
 	o.ServeJSON()
 }
 
-/*
 // @Title Create
 // @Description create sensor
 // @Param	body		body 	models.Sensor	true		"The sensor content"

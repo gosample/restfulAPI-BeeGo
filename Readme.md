@@ -30,5 +30,5 @@ Instalar:
 
 ### Otra referencia (personal)
 
-Revisar: https://github.com/Jenazad/developConfig/
+Revisar: https://github.com/Jenazad/developConfig/ en la carpeta Golang.
 

@@ -74,26 +74,34 @@ func sensoresRequest(Tipo string) []Sensor{
   return listSensores
 }
 
-func sensorTipoRequest() []sensorTipo{
-  var listTipo []sensorTipo
-  var listTipo1 []string
+func sensorTipoRequest() sensorTipo{
+  var listTipo1 []sensorTipo1
+  var listTipo2 []string
+  var listTipo sensorTipo
   session, err := mgo.Dial(url)
   if err != nil {
     panic(err)
   }
   defer session.Close()
   session.SetMode(mgo.Monotonic, true)
-  c := session.DB(db).C("sensorestipo")
-  c1 := session.DB(db).C("sensores")
-  err = c1.Find(bson.M{ }).Distinct("tipo_sensor",&listTipo1)
-  err = c.Find(bson.M{ }).All(&listTipo)
-  js1 , __ := json.Marshal(listTipo1)
-  js, __ := json.Marshal(listTipo)
+
+  c := session.DB(db).C("sensores")
+  c1 := session.DB(db).C("sensorestipo")
+  c2 := session.DB(db).C("sensores")
+
+  err = c.Find(bson.M{ }).Distinct("tipo_sensor",&listTipo.Tipo_sensor)
+  err = c1.Find(bson.M{ }).All(&listTipo1)
+  err = c2.Find(bson.M{}).Distinct("tipo_sensor",&listTipo2)
+
+  js , __ := json.Marshal(listTipo)
+  js1, __ := json.Marshal(listTipo1)
+  js2 , __ := json.Marshal(listTipo2)
   if __ != nil {
     panic(__)
   }
   fmt.Printf("\nlista delos tipos de sensores:\n%s\n\n",js)
   fmt.Printf("\nlista delos tipos de sensores:\n%s\n\n",js1)
+  fmt.Printf("\nlista delos tipos de sensores:\n%s\n\n",js2)
   return listTipo
 }
 

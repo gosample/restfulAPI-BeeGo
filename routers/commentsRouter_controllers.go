@@ -97,13 +97,6 @@ func init() {
 			AllowHTTPMethods: []string{"get"},
 			Params: nil})
 
-	beego.GlobalControllerRouter["restfulAPI-BeeGo/controllers:SensorTipoController"] = append(beego.GlobalControllerRouter["restfulAPI-BeeGo/controllers:SensorTipoController"],
-		beego.ControllerComments{
-			Method: "Get",
-			Router: `/:Tipo_sensor`,
-			AllowHTTPMethods: []string{"get"},
-			Params: nil})
-
 	beego.GlobalControllerRouter["restfulAPI-BeeGo/controllers:UserController"] = append(beego.GlobalControllerRouter["restfulAPI-BeeGo/controllers:UserController"],
 		beego.ControllerComments{
 			Method: "Post",

@@ -51,28 +51,3 @@ db.cansats.insert({
     {"id_sensor":"S53003","tipo_sensor":"Dioxido"}
   ]
 })
-/* tipo sensores */
-db.sensorestipo.insert({
-  "tipo_sensor":"Dioxido",
-  "prefijo":"CO2"
-})
-db.sensorestipo.insert({
-  "tipo_sensor":"Temperatura",
-  "prefijo":"T"
-})
-db.sensorestipo.insert({
-  "tipo_sensor":"Presion",
-  "prefijo":"P"
-})
-db.sensorestipo.insert({
-  "tipo_sensor":"Monoxido",
-  "prefijo":"CO"
-})
-db.sensorestipo.insert({
-  "tipo_sensor":"Amoniaco",
-  "prefijo":"NH3"
-})
-db.sensorestipo.insert({
-  "tipo_sensor":"Humedad",
-  "prefijo":"H"
-})
