@@ -24,17 +24,23 @@ type Sensor struct {
 var listSensores []Sensor
 
 func init() {
-  listSensores = sensoresRequest()
+  listSensores = sensoresRequest("")
 }
 
 func GetAllSensores() []Sensor {
-  listSensores = sensoresRequest()
+  listSensores = sensoresRequest("")
 	return listSensores
 }
 
 func GetSensorId(Tipo_sensor string) (sensor []Sensor, err error) {
-  listSensores = sensoresRequest()
-  var sens []Sensor
+  listSensores = sensoresRequest(Tipo_sensor)
+  if listSensores ==nil {
+    fmt.Printf("\nNo se encontro Sensores !\n\n")
+    return nil, errors.New("Sensor no existe")
+  } else {
+    return listSensores, nil
+  }
+/*  var sens []Sensor
   for i := 0; i < len(listSensores); i++ {
     if listSensores[i].Tipo_sensor==Tipo_sensor {
       sens = append(sens, listSensores[i])
@@ -44,7 +50,7 @@ func GetSensorId(Tipo_sensor string) (sensor []Sensor, err error) {
     fmt.Printf("\nNo se encontraron sensores de ese tipo !\n\n")
 	  return nil, errors.New("Sensor no existe")
 	}
-	return sens, nil
+	return sens, nil*/
 }
 
 /*

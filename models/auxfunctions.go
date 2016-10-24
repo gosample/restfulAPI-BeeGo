@@ -17,18 +17,18 @@ var sensado_collection = "datosensado"
 var url = ip+":"+portdb
 
 func removeDuplicatesUnordered(elements []string) []string {
-    encountered := map[string]bool{}
-    for v:= range elements {
-	encountered[elements[v]] = true
-    }
-    result := []string{}
-    for key, _ := range encountered {
-	result = append(result, key)
-    }
-    return result
+  encountered := map[string]bool{}
+  for v:= range elements {
+  	encountered[elements[v]] = true
+  }
+  result := []string{}
+  for key, _ := range encountered {
+  	result = append(result, key)
+  }
+  return result
 }
 
-func cansatRequest() []Cansat{
+func cansatRequest(Id string) []Cansat{
   var listCansats []Cansat
   session, err := mgo.Dial(url)
   if err != nil {
@@ -37,7 +37,11 @@ func cansatRequest() []Cansat{
   defer session.Close()
   session.SetMode(mgo.Monotonic, true)
   c := session.DB(db).C(usr_collection)
-  err = c.Find(bson.M{ }).All(&listCansats)
+  if Id == ""{
+    err = c.Find(bson.M{ }).All(&listCansats)
+  } else {
+    err = c.Find(bson.M{"id_cansat": Id}).All(&listCansats)
+  }
   js, __ := json.Marshal(listCansats)
   //fmt.Printf("%s\n",listCansats[0].Modelo)
   //fmt.Println(reflect.TypeOf(listCansats))
@@ -48,7 +52,7 @@ func cansatRequest() []Cansat{
   return listCansats
 }
 
-func sensoresRequest() []Sensor{
+func sensoresRequest(Tipo string) []Sensor{
   var listSensores []Sensor
   session, err := mgo.Dial(url)
   if err != nil {
@@ -57,7 +61,11 @@ func sensoresRequest() []Sensor{
   defer session.Close()
   session.SetMode(mgo.Monotonic, true)
   c := session.DB(db).C(sensor_collection)
-  err = c.Find(bson.M{ }).All(&listSensores)
+  if Tipo == ""{
+    err = c.Find(bson.M{ }).All(&listSensores)
+  } else {
+    err = c.Find(bson.M{"tipo_sensor": Tipo}).All(&listSensores)
+  }
   js, __ := json.Marshal(listSensores)
   if __ != nil {
     panic(__)
@@ -89,7 +97,7 @@ func sensorTipoRequest() []sensorTipo{
   return listTipo
 }
 
-func datoSensadoRequest() []datoSensado{
+func datoSensadoRequest(Tipo_sensor string, Id_cansat string) []datoSensado{
   var listDato []datoSensado
   session, err := mgo.Dial(url)
   if err != nil {
@@ -98,7 +106,17 @@ func datoSensadoRequest() []datoSensado{
   defer session.Close()
   session.SetMode(mgo.Monotonic, true)
   c := session.DB(db).C(sensado_collection)
-  err = c.Find(bson.M{ }).All(&listDato)
+  if Tipo_sensor == "" && Id_cansat ==""{
+    err = c.Find(bson.M{ }).All(&listDato)
+  } else if Tipo_sensor !=""{
+    if Id_cansat == ""{
+      err = c.Find(bson.M{"tipo_sensor": Tipo_sensor}).All(&listDato)
+    } else if Id_cansat != ""{
+      err = c.Find(bson.M{"tipo_sensor": Tipo_sensor,"id_cansat": Id_cansat}).All(&listDato)
+    }
+  } else if Tipo_sensor == "" && Id_cansat != "" {
+    err = c.Find(bson.M{"id_cansat": Id_cansat}).All(&listDato)
+  }
   js, __ := json.Marshal(listDato)
   if __ != nil {
     panic(__)

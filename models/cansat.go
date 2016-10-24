@@ -29,24 +29,22 @@ type SensCan struct{
 var listCansats []Cansat
 
 func init() {
-  listCansats = cansatRequest()
+  listCansats = cansatRequest("")
 }
 
 func GetAllCansats() []Cansat {
-  listCansats = cansatRequest()
+  listCansats = cansatRequest("")
 	return listCansats
 }
 
-func GetCansat(Id_cansat string) (cansat Cansat, err error) {
-  listCansats = cansatRequest()
-  cansat = listCansats[0]
-  for i := 0; i < len(listCansats); i++ {
-    if listCansats[i].Id_cansat==Id_cansat {
-      return listCansats[i], nil
-    }
-	}
-  fmt.Printf("\nNo se encontro Cansat !\n\n")
-	return cansat, errors.New("Cansat no existe")
+func GetCansat(Id_cansat string) (cansat []Cansat, err error) {
+  listCansats = cansatRequest(Id_cansat)
+  if listCansats == nil {
+    fmt.Printf("\nNo se encontro Cansat !\n\n")
+    return nil, errors.New("Cansat no existe")
+  } else {
+    return listCansats, nil
+  }
 }
 
 /*

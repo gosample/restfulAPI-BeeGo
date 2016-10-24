@@ -11,28 +11,34 @@ import (
 // db.sensores.aggregate([{$unwind:"$tipo_sensor"},{$project:{_id:0,tipo_sensor:1,"prefijo":1}}])
 
 type datoSensado struct{
-  Id_cansat   string `json:"id_cansat"`
-  Id_sensor   string `json:"id_sensor"`
+  Id_cansat   string  `json:"id_cansat"`
+  Id_sensor   string  `json:"id_sensor"`
   Value       float32 `json:"value"`
-  Tipo_sensor string `json:"tipo_sensor"`
-  Fecha       string `json:"fecha"`
-  Hora        string `json:"hora"`
+  Tipo_sensor string  `json:"tipo_sensor"`
+  Fecha       string  `json:"fecha"`
+  Hora        string  `json:"hora"`
 }
 
 var listDato []datoSensado
 
 func init(){
-  listDato = datoSensadoRequest()
+  listDato = datoSensadoRequest("","")
 }
 
 func GetAllDatoSensado() []datoSensado{
-  listDato = datoSensadoRequest()
+  listDato = datoSensadoRequest("","")
   return listDato
 }
 
 func GetDatoSensado(Tipo_sensor string,Id_cansat string) (listCansatxSensor [] datoSensado, err error) {
-  listDato = datoSensadoRequest()
-  var sens []datoSensado
+  listDato = datoSensadoRequest(Tipo_sensor,Id_cansat)
+  if listDato ==nil {
+    fmt.Printf("\nNo se encontro Sensores !\n\n")
+    return nil, errors.New("Sensor no existe")
+  } else {
+    return listDato, nil
+  }
+/*  var sens []datoSensado
   for i := 0; i < len(listDato); i++ {
     if listDato[i].Tipo_sensor==Tipo_sensor && listDato[i].Id_cansat==Id_cansat && Id_cansat != ""{
       sens = append(sens, listDato[i])
@@ -42,7 +48,7 @@ func GetDatoSensado(Tipo_sensor string,Id_cansat string) (listCansatxSensor [] d
     fmt.Printf("\nNo se encontraron cansats con el tipo Sensor !\n\n")
 	  return nil, errors.New("Sensor no existe")
 	}
-	return sens, nil
+	return sens, nil*/
 }
 
 /*

@@ -26,7 +26,7 @@ func (o *DatoSensadoController) GetAll() {
 
 // @Title Get
 // @Description find sensor by sensorid
-// @Param	Id_sensor		path 	string	true		"the id_sensor you want to get"
+// @Param	Tipo_sensor		path 	string	true		"the id_sensor you want to get"
 // @Success 200 {sensor} models.Sensor
 // @Failure 403 :Id_sensor is empty
 // @router /:Tipo_sensor/:Id_cansat [get]
@@ -35,8 +35,36 @@ func (o *DatoSensadoController) Get() {
   o.Ctx.ResponseWriter.Header().Add("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
 	Tipo_sensor := o.Ctx.Input.Param(":Tipo_sensor")
 	Id_cansat := o.Ctx.Input.Param(":Id_cansat")
-	if Tipo_sensor != "" && Id_cansat != ""{
+	if Tipo_sensor != ""{
 		ob, err := models.GetDatoSensado(Tipo_sensor,Id_cansat)
+		if err != nil {
+			o.Data["json"] = err.Error()
+		} else {
+			o.Data["json"] = ob
+		}
+	}
+	o.ServeJSON()
+}
+
+// @Title Get
+// @Description find sensor by sensorid
+// @Param	Tipo_sensor		path 	string	true		"the id_sensor you want to get"
+// @Success 200 {sensor} models.Sensor
+// @Failure 403 :Id_sensor is empty
+// @router /:Tipo_sensor [get]
+func (o *DatoSensadoController) GetTypes() {
+  o.Ctx.ResponseWriter.Header().Add("Access-Control-Allow-Origin", "*")
+  o.Ctx.ResponseWriter.Header().Add("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
+	Tipo_sensor := o.Ctx.Input.Param(":Tipo_sensor")
+	if Tipo_sensor != "" && Tipo_sensor[0] != 'C'{
+		ob, err := models.GetDatoSensado(Tipo_sensor,"")
+		if err != nil {
+			o.Data["json"] = err.Error()
+		} else {
+			o.Data["json"] = ob
+		}
+	} else if Tipo_sensor != "" && Tipo_sensor[0] == 'C'{
+		ob, err := models.GetDatoSensado("",Tipo_sensor)
 		if err != nil {
 			o.Data["json"] = err.Error()
 		} else {
