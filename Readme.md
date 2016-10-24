@@ -32,3 +32,12 @@ Instalar:
 
 Revisar: https://github.com/Jenazad/developConfig/ en la carpeta Golang.
 
+**Levantar el los servicios RESTful web**
+
+    bee run
+
+**Ingresamos a la aplicación**
+
+    http://localhost:6568
+
+
