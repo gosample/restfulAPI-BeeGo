@@ -1,6 +1,6 @@
 # RESTful Web Services using Bee-Go Framework API with Go language
 
-Plataforma de desarrollo usando el lenguaje de programación Go, el driver para MongoDB de Go y el framework BeeGo.
+Implementación de un API de desarrollo usando el lenguaje de programación Go, el driver para MongoDB de Go y el framework BeeGo.
 
 Esta plataforma es el servicio Restful (Get, Post, Delete, Update) para el servicio frontend: https://github.com/juanmorenomotta/angular-beego
 
