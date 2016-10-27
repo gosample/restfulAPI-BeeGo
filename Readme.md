@@ -35,9 +35,6 @@ Revisar: https://github.com/Jenazad/developConfig/ en la carpeta Golang.
 ###Levantar el los servicios RESTful web
 
     bee run
-    go run main.go
-
-De la segunda manera, generara un router más, por lo que se recomienda solo ejecutar (bee run)
 
 ###Ingresamos a la aplicación
 
