@@ -38,7 +38,7 @@ func cansatRequest(Id string) []Cansat{
   session.SetMode(mgo.Monotonic, true)
   c := session.DB(db).C(usr_collection)
   if Id == ""{
-    err = c.Find(bson.M{ }).All(&listCansats)
+    err = c.Find(bson.M{ }).Sort("id_cansat").All(&listCansats)
   } else {
     err = c.Find(bson.M{"id_cansat": Id}).All(&listCansats)
   }
@@ -62,9 +62,9 @@ func sensoresRequest(Tipo string) []Sensor{
   session.SetMode(mgo.Monotonic, true)
   c := session.DB(db).C(sensor_collection)
   if Tipo == ""{
-    err = c.Find(bson.M{ }).All(&listSensores)
+    err = c.Find(bson.M{ }).Sort("id_sensor").All(&listSensores)
   } else {
-    err = c.Find(bson.M{"tipo_sensor": Tipo}).All(&listSensores)
+    err = c.Find(bson.M{"tipo_sensor": Tipo}).Sort("id_sensor").All(&listSensores)
   }
   js, __ := json.Marshal(listSensores)
   if __ != nil {

@@ -36,6 +36,7 @@ db.cansats.insert({
   "latitud":-12.0173944,
   "lugar":"Zona 1",
   "sensores":[
+    {"id_sensor":"S50003","tipo_sensor":"Temperatura"},
     {"id_sensor":"S53002","tipo_sensor":"Dioxido"}
   ]
 })
