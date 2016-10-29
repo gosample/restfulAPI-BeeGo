@@ -6,13 +6,15 @@ Esta plataforma es el servicio Restful (Get, Post, Delete, Update) para el servi
 
 # Requisitos
 
-## Golang:
+## Go language
 
-Para mayor información consultar: https://golang.org/doc/install
+Revisar [Golang](https://golang.org/dl/) para instalar Go language en tu maquina.
+
+o tambien revisar el repositorio [developConfig/Golang](https://github.com/Jenazad/developConfig/tree/master/golang) para ver como instalar go language.
 
 ## BeeGo:
 
-WebFramework para el lenguaje Go, para mayor información consultar: http://beego.me/quickstart
+WebFramework para el lenguaje Go, para mayor información consultar la web [Beego](http://beego.me/quickstart)
 
 Instalar:
 
@@ -21,7 +23,7 @@ Instalar:
 
 ## Mango (mgo):
 
-Driver de MongoDB para el lenguaje Go, para mayor información consultar: https://labix.org/mgo
+Driver de MongoDB para el lenguaje Go, para mayor información consultar la web de [mgo](https://labix.org/mgo)
 
 Instalar:
 
@@ -30,7 +32,7 @@ Instalar:
 
 ### Otra referencia (personal)
 
-Revisar: https://github.com/Jenazad/developConfig/ en la carpeta Golang.
+Revisar el repositorio [developConfig/Golang](https://github.com/Jenazad/developConfig/tree/master/golang) para ver como instalar go language y demas drivers.
 
 ###Levantar el los servicios RESTful web
 
