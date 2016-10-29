@@ -18,7 +18,7 @@ func init() {
 			),
 		),
 	)
-	sensCan := beego.NewNamespace("/smartcity",
+	restfulRouter := beego.NewNamespace("/smartcity",
 		beego.NSNamespace("/cansats",
 			beego.NSInclude(
 				&controllers.UsrController{},
@@ -41,5 +41,5 @@ func init() {
 		),
 	)
 	beego.AddNamespace(ns)
-	beego.AddNamespace(sensCan)
+	beego.AddNamespace(restfulRouter)
 }

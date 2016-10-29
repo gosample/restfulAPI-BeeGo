@@ -30,8 +30,8 @@ func GetAllDatoSensado() []datoSensado{
   return listDato
 }
 
-func GetDatoSensado(Tipo_sensor string,Id_cansat string) (listCansatxSensor [] datoSensado, err error) {
-  listDato = datoSensadoRequest(Tipo_sensor,Id_cansat)
+func GetDatoSensado(Tipo_sensor string,Id_usr string) (listUsrxSensor [] datoSensado, err error) {
+  listDato = datoSensadoRequest(Tipo_sensor,Id_usr)
   if listDato ==nil {
     fmt.Printf("\nNo se encontro Sensores !\n\n")
     return nil, errors.New("Sensor no existe")
@@ -40,12 +40,12 @@ func GetDatoSensado(Tipo_sensor string,Id_cansat string) (listCansatxSensor [] d
   }
 /*  var sens []datoSensado
   for i := 0; i < len(listDato); i++ {
-    if listDato[i].Tipo_sensor==Tipo_sensor && listDato[i].Id_cansat==Id_cansat && Id_cansat != ""{
+    if listDato[i].Tipo_sensor==Tipo_sensor && listDato[i].Id_usr==Id_usr && Id_usr != ""{
       sens = append(sens, listDato[i])
     }
 	}
 	if sens==nil{
-    fmt.Printf("\nNo se encontraron cansats con el tipo Sensor !\n\n")
+    fmt.Printf("\nNo se encontraron IoTDevices con el tipo Sensor !\n\n")
 	  return nil, errors.New("Sensor no existe")
 	}
 	return sens, nil*/

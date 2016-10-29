@@ -9,7 +9,7 @@ import (
 )
 
 type Usr struct{
-  Id_usr   string `json:"id_cansat"`
+  Id_cansat   string `json:"id_cansat"`
   Modelo      string `json:"modelo"`
   F_install   string `json:"f_install"`
   H_install   string `json:"h_install"`

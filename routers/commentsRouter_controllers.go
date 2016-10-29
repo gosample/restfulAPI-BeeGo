@@ -16,7 +16,7 @@ func init() {
 	beego.GlobalControllerRouter["restfulAPI-BeeGo/controllers:DatoSensadoController"] = append(beego.GlobalControllerRouter["restfulAPI-BeeGo/controllers:DatoSensadoController"],
 		beego.ControllerComments{
 			Method: "Get",
-			Router: `/:Tipo_sensor/:Id_cansat`,
+			Router: `/:Tipo_sensor/:Id_usr`,
 			AllowHTTPMethods: []string{"get"},
 			Params: nil})
 
