@@ -21,7 +21,7 @@ func init() {
 	sensCan := beego.NewNamespace("/smartcity",
 		beego.NSNamespace("/cansats",
 			beego.NSInclude(
-				&controllers.CansatController{},
+				&controllers.UsrController{},
 			),
 		),
 		beego.NSNamespace("/sensores",

@@ -8,8 +8,8 @@ import (
 	"fmt"
 )
 
-type Cansat struct{
-  Id_cansat   string `json:"id_cansat"`
+type Usr struct{
+  Id_usr   string `json:"id_cansat"`
   Modelo      string `json:"modelo"`
   F_install   string `json:"f_install"`
   H_install   string `json:"h_install"`
@@ -26,24 +26,24 @@ type SensCan struct{
 // db.cansats.aggregate([{$unwind:"$id_sensores"},{$project:{_id:0,id_sensores:1}}])
 // db.cansats.aggregate([{$unwind:"$id_sensores"},{$match:{"id_cansat":"C1001"}},{$project:{_id:0,id_sensores:1}}])
 
-var listCansats []Cansat
+var listUsrs []Usr
 
 func init() {
-  listCansats = cansatRequest("")
+  listUsrs = usrRequest("")
 }
 
-func GetAllCansats() []Cansat {
-  listCansats = cansatRequest("")
-	return listCansats
+func GetAllUsrs() []Usr {
+  listUsrs = usrRequest("")
+	return listUsrs
 }
 
-func GetCansat(Id_cansat string) (cansat []Cansat, err error) {
-  listCansats = cansatRequest(Id_cansat)
-  if listCansats == nil {
-    fmt.Printf("\nNo se encontro Cansat !\n\n")
-    return nil, errors.New("Cansat no existe")
+func GetUsr(Id_usr string) (usr []Usr, err error) {
+  listUsrs = usrRequest(Id_usr)
+  if listUsrs == nil {
+    fmt.Printf("\nNo se encontro IoTDevice !\n\n")
+    return nil, errors.New("IotDevice no existe")
   } else {
-    return listCansats, nil
+    return listUsrs, nil
   }
 }
 

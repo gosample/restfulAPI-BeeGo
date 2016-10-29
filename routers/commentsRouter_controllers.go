@@ -6,20 +6,6 @@ import (
 
 func init() {
 
-	beego.GlobalControllerRouter["restfulAPI-BeeGo/controllers:CansatController"] = append(beego.GlobalControllerRouter["restfulAPI-BeeGo/controllers:CansatController"],
-		beego.ControllerComments{
-			Method: "GetAll",
-			Router: `/`,
-			AllowHTTPMethods: []string{"get"},
-			Params: nil})
-
-	beego.GlobalControllerRouter["restfulAPI-BeeGo/controllers:CansatController"] = append(beego.GlobalControllerRouter["restfulAPI-BeeGo/controllers:CansatController"],
-		beego.ControllerComments{
-			Method: "Get",
-			Router: `/:Id_cansat`,
-			AllowHTTPMethods: []string{"get"},
-			Params: nil})
-
 	beego.GlobalControllerRouter["restfulAPI-BeeGo/controllers:DatoSensadoController"] = append(beego.GlobalControllerRouter["restfulAPI-BeeGo/controllers:DatoSensadoController"],
 		beego.ControllerComments{
 			Method: "GetAll",
@@ -143,6 +129,20 @@ func init() {
 		beego.ControllerComments{
 			Method: "Logout",
 			Router: `/logout`,
+			AllowHTTPMethods: []string{"get"},
+			Params: nil})
+
+	beego.GlobalControllerRouter["restfulAPI-BeeGo/controllers:UsrController"] = append(beego.GlobalControllerRouter["restfulAPI-BeeGo/controllers:UsrController"],
+		beego.ControllerComments{
+			Method: "GetAll",
+			Router: `/`,
+			AllowHTTPMethods: []string{"get"},
+			Params: nil})
+
+	beego.GlobalControllerRouter["restfulAPI-BeeGo/controllers:UsrController"] = append(beego.GlobalControllerRouter["restfulAPI-BeeGo/controllers:UsrController"],
+		beego.ControllerComments{
+			Method: "Get",
+			Router: `/:Id_usr`,
 			AllowHTTPMethods: []string{"get"},
 			Params: nil})
 

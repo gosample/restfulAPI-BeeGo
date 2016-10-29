@@ -6,36 +6,35 @@ import (
 	"github.com/astaxie/beego"
 )
 
-// Operations about cansat
-type CansatController struct {
+type UsrController struct {
 	beego.Controller
 }
 
 // @Title GetAll
-// @Description get all cansats
-// @Success 200 {cansat} models.cansat
-// @Failure 403 :Id_cansat is empty
+// @Description get all usrs
+// @Success 200 {usr} models.usr
+// @Failure 403 :Id_usr is empty
 // @router / [get]
-func (o *CansatController) GetAll() {
+func (o *UsrController) GetAll() {
   o.Ctx.ResponseWriter.Header().Add("Access-Control-Allow-Origin", "*")
   o.Ctx.ResponseWriter.Header().Add("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
-	obs := models.GetAllCansats()
+	obs := models.GetAllUsrs()
 	o.Data["json"] = obs
 	o.ServeJSON()
 }
 
 // @Title Get
-// @Description find cansat by id_cansat
-// @Param	Id_cansat		path 	string	true		"the id_cansat you want to get"
-// @Success 200 {cansat} models.Cansat
-// @Failure 403 :Id_cansat is empty
-// @router /:Id_cansat [get]
-func (o *CansatController) Get() {
+// @Description find usr by id_usr
+// @Param	Id_usr		path 	string	true		"the id_usr you want to get"
+// @Success 200 {usr} models.usr
+// @Failure 403 :Id_usr is empty
+// @router /:Id_usr [get]
+func (o *UsrController) Get() {
   o.Ctx.ResponseWriter.Header().Add("Access-Control-Allow-Origin", "*")
   o.Ctx.ResponseWriter.Header().Add("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept")
-	Id_cansat := o.Ctx.Input.Param(":Id_cansat")
-	if Id_cansat != "" {
-		ob, err := models.GetCansat(Id_cansat)
+	Id_usr := o.Ctx.Input.Param(":Id_usr")
+	if Id_usr != "" {
+		ob, err := models.GetUsr(Id_usr)
 		if err != nil {
 			o.Data["json"] = err.Error()
 		} else {

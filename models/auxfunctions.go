@@ -28,8 +28,8 @@ func removeDuplicatesUnordered(elements []string) []string {
   return result
 }
 
-func cansatRequest(Id string) []Cansat{
-  var listCansats []Cansat
+func usrRequest(Id string) []Usr{
+  var listUsrs []Usr
   session, err := mgo.Dial(url)
   if err != nil {
     panic(err)
@@ -38,18 +38,18 @@ func cansatRequest(Id string) []Cansat{
   session.SetMode(mgo.Monotonic, true)
   c := session.DB(db).C(usr_collection)
   if Id == ""{
-    err = c.Find(bson.M{ }).Sort("id_cansat").All(&listCansats)
+    err = c.Find(bson.M{ }).Sort("id_cansat").All(&listUsrs)
   } else {
-    err = c.Find(bson.M{"id_cansat": Id}).All(&listCansats)
+    err = c.Find(bson.M{"id_cansat": Id}).All(&listUsrs)
   }
-  js, __ := json.Marshal(listCansats)
-  //fmt.Printf("%s\n",listCansats[0].Modelo)
-  //fmt.Println(reflect.TypeOf(listCansats))
+  js, __ := json.Marshal(listUsrs)
+  //fmt.Printf("%s\n",listUsrs[0].Modelo)
+  //fmt.Println(reflect.TypeOf(listUsrs))
   if __ != nil {
     panic(__)
   }
-  fmt.Printf("\nlista de cansats:\n%s\n\n",js)
-  return listCansats
+  fmt.Printf("\nlista de IoTDevices:\n%s\n\n",js)
+  return listUsrs
 }
 
 func sensoresRequest(Tipo string) []Sensor{
