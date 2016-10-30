@@ -1,4 +1,4 @@
-# RESTful Web Services using Bee-Go Framework API with Go language
+# RESTful API Web Services using Bee-Go Framework API with Go language
 
 Implementación de un API de desarrollo usando el lenguaje de programación Go, el driver para MongoDB de Go y el framework BeeGo.
 
