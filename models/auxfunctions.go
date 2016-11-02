@@ -74,7 +74,7 @@ func sensoresRequest(Tipo string) []Sensor{
   return listSensores
 }
 
-func sensorTipoRequest() sensorTipo{
+func sensorTipoRequest(Id_user string) sensorTipo{
   var listTipo1 []sensorTipo1
   var listTipo2 []string
   var listTipo sensorTipo

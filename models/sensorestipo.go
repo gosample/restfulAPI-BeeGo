@@ -12,11 +12,11 @@ type sensorTipo1 struct{
 var listTipo sensorTipo
 
 func init(){
-  listTipo = sensorTipoRequest()
+  listTipo = sensorTipoRequest("")
 }
 
 func GetAllSensorTipo() sensorTipo{
-  listTipo = sensorTipoRequest()
+  listTipo = sensorTipoRequest("")
   return listTipo
 }
 
